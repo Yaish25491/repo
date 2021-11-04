@@ -3,8 +3,11 @@
 
 class Vehicle:
 
-    def __init__(self, vehicle_info):
-        self.vehicle_info = vehicle_info()
+    def __init__(self):
+        self.vehicle_info = list()
+
+    def add_info(self,l):
+        self.vehicle_info.append(l)
 
     def print_me(self):
         print("-------", self.vehicle_info[0], "-------")
@@ -32,5 +35,5 @@ class Vehicle:
         print("Price:", self.price)
 """""
 v = Vehicle([1155999, "Car", "Toyota", "Corolla", 2020, 83400])
+Vehicle.add_info(v)
 
-v.print_me()
