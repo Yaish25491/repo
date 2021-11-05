@@ -16,9 +16,9 @@ class Vehicle:
         return self.__str__
 
     def print_me(self):
-        print("licence_plate: {}".format(self.licence_plate))
-        print("vehicle_type: {}".format(self.vehicle_type))
-        print("manufacturer: {}".format(self.manufacturer))
-        print("model: {}".format(self.model))
-        print("year: {}".format(self.year))
-        print("price: {}".format(self.price))
+        print("licence_plate:    {}".format(self.licence_plate))
+        print("vehicle_type:     {}".format(self.vehicle_type))
+        print("manufacturer:     {}".format(self.manufacturer))
+        print("model:            {}".format(self.model))
+        print("year:             {}".format(self.year))
+        print("price:            {}".format(self.price))
