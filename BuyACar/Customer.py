@@ -1,18 +1,23 @@
 class Customer:
 
     def __init__(self, params):
+        self.customer_id = params[0]
+        self.name = params[1]
+        self.address = params[2]
 
-     self.customer_id = params[0]
-     self.name = params[1]
-     self.address = params[2]
-
-    #if len(params[3]) == 10:
-     self.phone_number = params[3]
-
-    #gender_list = ("M", "F")
-    #if params[4] in gender_list:
-     self.gender = params[4]
-
+        count = 0
+        while params[3] != 0:
+            params[3] //= 10
+            count += 1
+        print(count)
+        self.phone_number = params[3]
+        self.gender = params[4]
+        gender = self.gender
+        gender_list = ("M", "F")
+        if gender in gender_list:
+            print("ok")
+        else:
+            print("notOK")
     def __str__(self):
       return "{}, {}, {}, {}, {}".format(self.customer_id, self.name, self.address, self.phone_number, self.gender)
 
