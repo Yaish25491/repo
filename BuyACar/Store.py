@@ -14,7 +14,7 @@ class Store:
             Vehicle(row)
 
     with open("customers.csv") as customers_list:
-        customers = csv.reader(customers_list)
+        customers_read = csv.reader(customers_list)
 
         next(customers_read)
         for row in customers_read:
