@@ -27,5 +27,20 @@ class Store:
             print(row)
 
     def get_vehicle(self):
+    "getting licence plate and returning the vehicle"
+
+    def add_vehicle(self):
+    "getting vehicle object, checking if exist, if not adding"
+
+    def remove_vehicle(self):
+    "getting vehicle object, checking if exist, if yes removing"
+
+    def get_all_by_manufacturer(self):
+    "getting manufacturer and returning a list of matching vehicles  "
+
+    def get_all_by_price_under(self):
+
+    def get_most_expansive_vehicle(self):
+
 
 
