@@ -6,18 +6,21 @@ from BuyACar.Customer import Customer
 
 class Store:
 
-    with open("vehicle_supply.csv") as vehicle_supply:
-        vehicle_read = csv.reader(vehicle_supply)
+    def __int__(self,vehicle, customer):
+        self.vehicle = vehicle
+        self.customer = customer
 
-        next(vehicle_read)
-        for row in vehicle_read:
-            Vehicle(row)
+        with open(self.vehicle) as vehicle_supply:
+            vehicle_read = csv.reader(vehicle_supply)
 
-    with open("customers.csv") as customers_list:
-        customers_read = csv.reader(customers_list)
+            next(vehicle_read)
+            for row in vehicle_read:
+                Vehicle(row)
 
-        next(customers_read)
-        for row in customers_read:
-            Customer(row)
+        with open(self.customer) as customers_list:
+            customers_read = csv.reader(customers_list)
 
-    def __init__(self):
+            next(customers_read)
+            for row in customers_read:
+                Customer(row)
+
