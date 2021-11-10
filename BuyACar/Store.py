@@ -12,15 +12,20 @@ class Store:
 
         with open(self.vehicle) as vehicle_supply:
             vehicle_read = csv.reader(vehicle_supply)
-
             next(vehicle_read)
             for row in vehicle_read:
                 Vehicle(row)
 
         with open(self.customer) as customers_list:
             customers_read = csv.reader(customers_list)
-
             next(customers_read)
             for row in customers_read:
                 Customer(row)
+
+    def print_vehicles(self):
+        for row in Vehicle:
+            print(row)
+
+    def get_vehicle(self):
+
 
