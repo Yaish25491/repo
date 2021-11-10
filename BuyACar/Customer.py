@@ -13,13 +13,15 @@ class Customer:
         self.phone_number = params[3]
         self.gender = params[4]
         gender = self.gender
+
         gender_list = ("M", "F")
         if gender in gender_list:
             print("ok")
         else:
             print("notOK")
+
     def __str__(self):
-      return "{}, {}, {}, {}, {}".format(self.customer_id, self.name, self.address, self.phone_number, self.gender)
+        return "{}, {}, {}, {}, {}".format(self.customer_id, self.name, self.address, self.phone_number, self.gender)
 
     def __repr__(self):
         return self.__str__
