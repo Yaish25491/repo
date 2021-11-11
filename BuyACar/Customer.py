@@ -6,10 +6,10 @@ class Customer:
         self.address = params[2]
 
         count = 0
-        while params[3] != 0:
-            params[3] //= 10
-            count += 1
-        print(count)
+        params[3] = str(params[3])
+        while len(params[3]) < 10:
+            params[3] = params[3] + "0"
+
         self.phone_number = params[3]
         self.gender = params[4]
         gender = self.gender
