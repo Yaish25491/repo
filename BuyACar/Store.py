@@ -75,3 +75,30 @@ class Store:
                 max_price = vehicle.price
                 most_expensive = vehicle
         return most_expensive
+
+    def print_customers(self):
+        for customers in self.vehicles:
+            print(customers)
+
+    def get_customer(self, customer_id):
+        c = None
+        for customer in self.customers:
+            if customer.customer_id == customer_id:
+                c = customer
+                break
+        return c
+
+    def add_customer(self, customer):
+        is_added = False
+        if self.get_customer(customer.customer_id) is None:
+            self.customer.append(customer)
+            is_added = True
+        return is_added
+
+    def remove_customer(self, customer):
+        is_removed = False
+        if self.get_customer(customer.customer_id) is not None:
+            self.customer.remove(customer)
+            is_removed = True
+        return is_removed
+
