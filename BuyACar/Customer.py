@@ -5,7 +5,7 @@ class Customer:
         self.name = params[1]
         self.address = params[2]
 
-        count = 0
+
         params[3] = str(params[3])
         while len(params[3]) < 10:
             params[3] = params[3] + "0"
