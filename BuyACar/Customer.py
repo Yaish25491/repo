@@ -5,20 +5,17 @@ class Customer:
         self.name = params[1]
         self.address = params[2]
 
-
         params[3] = str(params[3])
         while len(params[3]) < 10:
             params[3] = params[3] + "0"
 
         self.phone_number = params[3]
-        self.gender = params[4]
-        gender = self.gender
+
+        self.gender = params[4].strip
 
         gender_list = ("M", "F")
-        if gender in gender_list:
-            print("ok")
-        else:
-            print("notOK")
+        if self.gender not in gender_list:
+            self.gender = "F"
 
     def __str__(self):
         return "{}, {}, {}, {}, {}".format(self.customer_id, self.name, self.address, self.phone_number, self.gender)
@@ -32,4 +29,3 @@ class Customer:
         print("manufacturer:   {}".format(self.address))
         print("phone_number:   {}".format(self.phone_number))
         print("gender:         {}".format(self.gender))
-
