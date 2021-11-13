@@ -16,8 +16,8 @@ class Store:
             next(vehicle_read)
             for row in vehicle_read:
                 self.vehicles.append(Vehicle(row))
-        for v in self.vehicles:
-            print(v)
+        #for v in self.vehicles:
+         #   print(v)
 
         self.customers = []
         with open(self.customer) as customers_list:

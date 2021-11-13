@@ -5,7 +5,17 @@ class Vehicle:
         self.vehicle_type = params[1]
         self.manufacturer = params[2]
         self.model = params[3]
+
+        params[4] = str(params[4])
+        while len(params[4]) < 4:
+            params[4] = "0" + params[4]
         self.year = params[4]
+
+        params[5] = int(params[5])
+        if params[5] > 3000000:
+            params[5] == 1000000
+        if params[5] < 1000:
+            params[5] == 1000
         self.price = params[5]
 
     def __str__(self):
