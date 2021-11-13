@@ -16,8 +16,8 @@ class Store:
             next(vehicle_read)
             for row in vehicle_read:
                 self.vehicles.append(Vehicle(row))
-        #for v in self.vehicles:
-         #   print(v)
+        for v in self.vehicles:
+            print(v)
 
         self.customers = []
         with open(self.customer) as customers_list:
@@ -43,6 +43,7 @@ class Store:
         if self.get_vehicle(vehicle.licence_plate) is None:
             self.vehicles.append(vehicle)
             is_added = True
+
         return is_added
 
     def remove_vehicle(self, vehicle):
@@ -77,7 +78,7 @@ class Store:
         return most_expensive
 
     def print_customers(self):
-        for customers in self.vehicles:
+        for customers in self.customers:
             print(customers)
 
     def get_customer(self, customer_id):

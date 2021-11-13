@@ -20,9 +20,9 @@ def main():
    # AutoShopUSA.print_customers()
     print("#####################################################################")
 
-    #AutoShopUSA.add_vehicle(vehicleTest)
+   # AutoShopUSA.add_vehicle(vehicleTest)
     print("#####################################################################")
-   # AutoShopUSA.add_customer(customerTest)
+    AutoShopUSA.add_customer(customerTest)
     print("#####################################################################")
   #  AutoShopUSA.remove_customer(53374408)
     print("#####################################################################")
