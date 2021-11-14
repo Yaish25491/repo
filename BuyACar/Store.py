@@ -31,9 +31,10 @@ class Store:
             print(vehicle)
 
     def get_vehicle(self, licence_plate):
+
         v = None
         for vehicle in self.vehicles:
-            if vehicle.licence_plate == licence_plate:
+            if vehicle.licence_plate == str(licence_plate):
                 v = vehicle
                 break
         return v
@@ -47,8 +48,9 @@ class Store:
         return is_added
 
     def remove_vehicle(self, vehicle):
+
         is_removed = False
-        vehicle_to_remove = self.get_vehicle(vehicle)
+        vehicle_to_remove = self.get_vehicle(str(vehicle))
         if vehicle_to_remove is not None:
             self.vehicles.remove(vehicle_to_remove)
             is_removed = True
@@ -57,8 +59,9 @@ class Store:
     def get_all_by_manufacturer(self, manufacturer):
         vehicle_by_manufacturer = []
         for vehicle in self.vehicles:
-            if vehicle.manufacturer == manufacturer:
+            if vehicle.manufacturer  == manufacturer:
                 vehicle_by_manufacturer.append(vehicle)
+                #print(vehicle)
         return vehicle_by_manufacturer
 
     def get_all_by_price_under(self, price):
@@ -84,7 +87,7 @@ class Store:
     def get_customer(self, customer_id):
         c = None
         for customer in self.customers:
-            if customer.customer_id == customer_id:
+            if customer.customer_id == str(customer_id):
                 c = customer
                 break
         return c
