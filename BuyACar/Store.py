@@ -16,8 +16,8 @@ class Store:
             next(vehicle_read)
             for row in vehicle_read:
                 self.vehicles.append(Vehicle(row))
-        for v in self.vehicles:
-            print(v)
+        #for v in self.vehicles:
+          #  print(v)
 
         self.customers = []
         with open(self.customer) as customers_list:
@@ -48,8 +48,9 @@ class Store:
 
     def remove_vehicle(self, vehicle):
         is_removed = False
-        if self.get_vehicle(vehicle.licence_plate) is not None:
-            self.vehicles.remove(vehicle)
+        vehicle_to_remove = self.get_vehicle(vehicle)
+        if vehicle_to_remove is not None:
+            self.vehicles.remove(vehicle_to_remove)
             is_removed = True
         return is_removed
 
@@ -60,11 +61,10 @@ class Store:
                 vehicle_by_manufacturer.append(vehicle)
         return vehicle_by_manufacturer
 
-
     def get_all_by_price_under(self, price):
         price_under = []
         for vehicle in self.vehicles:
-            if vehicle.price < price:
+            if vehicle.price < int(price):
                 price_under.append(vehicle)
         return price_under
 
@@ -92,14 +92,14 @@ class Store:
     def add_customer(self, customer):
         is_added = False
         if self.get_customer(customer.customer_id) is None:
-            self.customer.append(customer)
+            self.customers.append(customer)
             is_added = True
         return is_added
 
-    def remove_customer(self, customer):
+    def remove_customer(self, customer_id):
         is_removed = False
-        if self.get_customer(customer.customer_id) is not None:
-            self.customer.remove(customer)
+        customer_to_remove = self.get_customer(customer_id)
+        if customer_to_remove is not None:
+            self.customers.remove(customer_to_remove)
             is_removed = True
         return is_removed
-
