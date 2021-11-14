@@ -16,8 +16,6 @@ class Store:
             next(vehicle_read)
             for row in vehicle_read:
                 self.vehicles.append(Vehicle(row))
-        #for v in self.vehicles:
-          #  print(v)
 
         self.customers = []
         with open(self.customer) as customers_list:
@@ -59,9 +57,8 @@ class Store:
     def get_all_by_manufacturer(self, manufacturer):
         vehicle_by_manufacturer = []
         for vehicle in self.vehicles:
-            if vehicle.manufacturer  == manufacturer:
+            if vehicle.manufacturer == manufacturer:
                 vehicle_by_manufacturer.append(vehicle)
-                #print(vehicle)
         return vehicle_by_manufacturer
 
     def get_all_by_price_under(self, price):

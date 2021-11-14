@@ -13,9 +13,9 @@ class Vehicle:
 
         params[5] = int(params[5])
         if params[5] > 3000000:
-            params[5] == 1000000
+            params[5] = 3000000
         if params[5] < 1000:
-            params[5] == 1000
+            params[5] = 1000
         self.price = params[5]
 
     def __str__(self):

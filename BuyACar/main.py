@@ -5,13 +5,14 @@ import os
 
 
 def main():
-    print("#####################################################################")
-    print(os.path.dirname(os.path.abspath(__file__)))
-    print("#####################################################################")
-    current_path = os.path.dirname(os.path.abspath(__file__))
-    #vPath = os.path.join(current_path + "/" + "vehicles_supply.csv")
-    #cPath = os.path.join(current_path + "/" + "customers.csv")
-    #AutoShopUSA = Store(vPath, cPath)
+    #####################################################################
+    # In some casses\os the script fails to open the csv files due to path issues
+    # Use this snippet as a work-arround for the issue
+    # current_path = os.path.dirname(os.path.abspath(__file__))
+    # vPath = os.path.join(current_path + "/" + "vehicles_supply.csv")
+    # cPath = os.path.join(current_path + "/" + "customers.csv")
+    # AutoShopUSA = Store(vPath, cPath)
+    #####################################################################
 
     vehicleTest = Vehicle([1155999, "Car", "Toyota", "Corolla", 2020, 83400])
     customerTest = Customer([98699, "Candace Parker", "Bates Street.St Louis", 503236702, "L"])
