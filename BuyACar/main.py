@@ -8,22 +8,20 @@ def main():
     print("#####################################################################")
     print(os.path.dirname(os.path.abspath(__file__)))
     print("#####################################################################")
-
-    #vPath = os.path.join(here,"vehicles_supply.csv")
-    #cPath = os.path.join(here,"customers.csv")
-    #AutoShopUSA = Store(vPath,cPath)
+    current_path = os.path.dirname(os.path.abspath(__file__))
+    vPath = os.path.join(current_path + "/" + "vehicles_supply.csv")
+    cPath = os.path.join(current_path + "/" + "customers.csv")
+    AutoShopUSA = Store(vPath, cPath)
 
     vehicleTest = Vehicle([1155999, "Car", "Toyota", "Corolla", 2020, 83400])
     customerTest = Customer([98699, "Candace Parker", "Bates Street.St Louis", 503236702, "L"])
-    AutoShopUSA = Store("vehicles_supply.csv", "customers.csv")
-
+    # AutoShopUSA = Store("vehicles_supply.csv", "customers.csv")
 
     print("#####################################################################")
-   # AutoShopUSA.print_vehicles()
+    # AutoShopUSA.print_vehicles()
     print("#####################################################################")
-   # AutoShopUSA.print_customers()
+    # AutoShopUSA.print_customers()
     print("#####################################################################")
-
     AutoShopUSA.add_vehicle(vehicleTest)
     print("#####################################################################")
     AutoShopUSA.add_customer(customerTest)
