@@ -1,6 +1,7 @@
-from Vehicle import Vehicle
+from Vehicle import Vehicle, CollectorsVehicle
 from Customer import Customer
 from Store import Store
+
 import os
 
 
@@ -43,6 +44,9 @@ def main():
     print("######################### Get Costumer ###############################")
     print(AutoShopUSA.get_customer(59769))
     print("#####################################################################")
+
+    CollectorsVehicle.print_me(AutoShopUSA)
+
 
 
 if __name__ == "__main__":
