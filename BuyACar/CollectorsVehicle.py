@@ -2,15 +2,15 @@ from BuyACar import Vehicle
 
 
 class CollectorsVehicle(Vehicle):
-    def __init__(self, params, km, old_owners, test):
+    def __init__(self, params):
         super().__init__(params)
 
-        if km < 0:
-            km = 0
-            self.km = km
+        if params[6] < 0:
+            params[6] = 0
+            self.km = params[6]
 
-        self.Old_Owners = int(old_owners)
-        self.test = tuple(test)
+        self.Old_Owners = int(params[7])
+        self.test = tuple(params[8])
 
     def print_me(self):
         print("licence_plate:    {}".format(self.licence_plate))
