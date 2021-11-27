@@ -16,7 +16,7 @@ def main():
 
     vehicleTest = Vehicle([1155999, "Car", "Toyota", "Corolla", 2020, 83400])
     customerTest = Customer([98699, "Candace Parker", "Bates Street.St Louis", 503236702, "L"])
-    AutoShopUSA = Store("vehicles_supply.csv", "customers.csv")
+    AutoShopUSA = Store("vehicles.csv", "customers.csv")
 
     print("######################### ALL Vehicles #################################")
     AutoShopUSA.print_vehicles()
