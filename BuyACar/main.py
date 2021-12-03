@@ -1,4 +1,5 @@
-from Vehicle import Vehicle, CollectorsVehicle
+from Vehicle import Vehicle
+from Vehicle import CollectorsVehicle
 from Customer import Customer
 from Store import Store
 
@@ -19,6 +20,8 @@ def main():
     customerTest = Customer([98699, "Candace Parker", "Bates Street.St Louis", 503236702, "L"])
     AutoShopUSA = Store("vehicles.csv", "customers.csv")
 
+
+"""""
     print("######################### ALL Vehicles #################################")
     AutoShopUSA.print_vehicles()
     print("######################### All Costumers ##############################")
@@ -44,10 +47,8 @@ def main():
     print("######################### Get Costumer ###############################")
     print(AutoShopUSA.get_customer(59769))
     print("#####################################################################")
-
-    CollectorsVehicle.print_me(AutoShopUSA)
-
-
+"""
+    CollectorsVehicle.print_me()
 
 if __name__ == "__main__":
     main()

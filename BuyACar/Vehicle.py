@@ -47,11 +47,11 @@ class CollectorsVehicle(Vehicle):
         self.test = tuple(params[8])
 
     def print_me(self):
-
         print(str(super().print_me()))
         print("KM:               {}".format(self.km))
         print("Number Of Owners: {}".format(self.Old_Owners))
         print("Test Date:        {},{}".format(self.test[0], self.test[1]))
+
 
 #  def __str__(self):
 #     back = super().__str__()
@@ -65,3 +65,6 @@ class CollectorsVehicle(Vehicle):
 #   if Vehicle is CollectorsVehicle:
 #      is_collector = True
 # return is_collector
+
+vehicleTest = Vehicle([1155999, "Car", "Toyota", "Corolla", 2020, 83400, 2963630, 9, (1, 2021)])
+CollectorsVehicle.print_me(vehicleTest)
