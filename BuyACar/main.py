@@ -2,7 +2,7 @@ from Vehicle import Vehicle
 from CollectorsVehicle import CollectorsVehicle
 from Customer import Customer
 from Store import Store
-
+from VIPCustomer import VIPCustomer
 import os
 
 
@@ -21,8 +21,11 @@ def main():
     AutoShopUSA = Store("vehicles.csv", "customers.csv")
     vehicleTest = Vehicle([1155999, "Car", "Toyota", "Corolla", 2020, 83400, 2963630, 9, "(1, 2021)"])
     c = CollectorsVehicle([1155999, "Car", "Toyota", "Corolla", 2020, 83400, 2963630, 9, "(1, 2021)"])
-    c.print_me()
-    print(c)
+    v = VIPCustomer([59769, "Simone Biles", "Alioth Ave	Ohio", 501277597, "F", "(31, 12, 2020)", "(17, 5, 1985)", True])
+    #c.print_me()
+    print(v)
+    v.GetPresent()
+    #print(c)
 
 """""
     print("######################### ALL Vehicles #################################")
