@@ -37,6 +37,8 @@ class Vehicle:
         print("year:             {}".format(self.year))
         print("price:            {}".format(self.price))
 
+    def IsCollector(self):
+        return False
 
 class CollectorsVehicle(Vehicle):
 
@@ -64,12 +66,8 @@ class CollectorsVehicle(Vehicle):
     def __repr__(self):
         return self.__str__()
 
-
-# def IsCollector(self):
-#    is_collector = False
-#   if Vehicle is CollectorsVehicle:
-#      is_collector = True
-# return is_collector
+    def IsCollector(self):
+        return True
 
 vehicleTest = Vehicle([1155999, "Car", "Toyota", "Corolla", 2020, 83400, 2963630, 9, "(1, 2021)"])
 c = CollectorsVehicle([1155999, "Car", "Toyota", "Corolla", 2020, 83400, 2963630, 9, "(1, 2021)"])
