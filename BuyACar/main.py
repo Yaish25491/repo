@@ -21,15 +21,36 @@ def main():
     AutoShopUSA = Store("vehicles.csv", "customers.csv")
     vehicleTest = Vehicle([1155999, "Car", "Toyota", "Corolla", 2020, 83400, 2963630, 9, "(1, 2021)"])
     c = CollectorsVehicle([1155999, "Car", "Toyota", "Corolla", 2020, 83400, 2963630, 9, "(1, 2021)"])
-    v = VIPCustomer([59769, "Simone Biles", "Alioth Ave	Ohio", 501277597, "F", "(31, 12, 2020)", "(17, 5, 1985)", True])
-    #c.print_me()
+    v = VIPCustomer(
+        [59769, "Simone Biles", "Alioth Ave	Ohio", 501277597, "F", "(31, 12, 2020)", "(17, 5, 1985)", True])
+    # c.print_me()
     print(v)
     v.GetPresent()
-    #print(c)
+    # print(c)
 
-"""""
     print("######################### ALL Vehicles #################################")
     AutoShopUSA.print_vehicles()
+    print("######################### ALL Collectors Vehicles #################################")
+    collectors_list = AutoShopUSA.collectors_vehicle
+    for vehicle in collectors_list:
+        print(vehicle)
+
+    print("######################### get all by KM under ##############################")
+
+    for vehicle in AutoShopUSA.get_all_by_KM_under(15000):
+        print(vehicle)
+
+    print("######################### All VIP Costumers ##############################")
+    VIPlist = AutoShopUSA.VIP_Customer
+    for costumer in VIPlist:
+        print(costumer)
+
+    print("######################### All Entitled ##############################")
+    for costumer in AutoShopUSA.get_all_entitled():
+        print(costumer)
+
+
+"""""
     print("######################### All Costumers ##############################")
     AutoShopUSA.print_customers()
     print("######################### Add Vehicle ##############################")

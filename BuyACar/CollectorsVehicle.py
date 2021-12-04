@@ -7,9 +7,9 @@ class CollectorsVehicle(Vehicle):
         tmp = params[0:6]
         super().__init__(tmp)
 
-        if params[6] < 0:
+        if int(params[6]) < 0:
             params[6] = 0
-        self.km = params[6]
+        self.km = int(params[6])
 
         self.Old_Owners = int(params[7])
         self.test = tuple(list(eval(params[8])))

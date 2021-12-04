@@ -2,6 +2,8 @@ import csv
 
 from BuyACar.Vehicle import Vehicle
 from BuyACar.Customer import Customer
+from BuyACar.VIPCustomer import VIPCustomer
+from BuyACar.CollectorsVehicle import CollectorsVehicle
 
 
 class Store:
@@ -11,22 +13,33 @@ class Store:
         self.customer = customer
 
         self.vehicles = []
+        self.collectors_vehicle = []
         with open(self.vehicle) as vehicle_supply:
             vehicle_read = csv.reader(vehicle_supply)
             next(vehicle_read)
             for row in vehicle_read:
-                self.vehicles.append(Vehicle(row))
+                if len(row) == 6:
+                    self.vehicles.append(Vehicle(row))
+                else:
+                    self.collectors_vehicle.append(CollectorsVehicle(row))
 
         self.customers = []
+        self.VIP_Customer = []
         with open(self.customer) as customers_list:
             customers_read = csv.reader(customers_list)
             next(customers_read)
             for row in customers_read:
-                self.customers.append(Customer(row))
+                if len(row) == 5:
+                    self.customers.append(customer(row))
+                else:
+                    self.VIP_Customer.append(VIPCustomer(row))
 
     def print_vehicles(self):
         for vehicle in self.vehicles:
             print(vehicle)
+
+    def get_all_collector(self):
+        return self.collectors_vehicle
 
     def get_vehicle(self, licence_plate):
 
@@ -36,6 +49,14 @@ class Store:
                 v = vehicle
                 break
         return v
+
+    def get_all_by_KM_under(self, km):
+
+        km_under = []
+        for vehicle in self.collectors_vehicle:
+            if vehicle.km <= int(km):
+                km_under.append(vehicle)
+        return km_under
 
     def add_vehicle(self, vehicle):
         is_added = False
@@ -81,6 +102,9 @@ class Store:
         for customers in self.customers:
             print(customers)
 
+    def get_all_vip(self):
+        return VIPCustomer
+
     def get_customer(self, customer_id):
         c = None
         for customer in self.customers:
@@ -88,6 +112,13 @@ class Store:
                 c = customer
                 break
         return c
+
+    def get_all_entitled(self):
+        entitled = []
+        for costumer in self.VIP_Customer:
+            if costumer:
+                entitled.append(costumer)
+        return entitled
 
     def add_customer(self, customer):
         is_added = False
