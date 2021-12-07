@@ -39,5 +39,3 @@ class Vehicle:
 
     def IsCollector(self):
         return False
-
-
