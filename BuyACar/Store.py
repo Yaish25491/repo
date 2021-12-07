@@ -30,7 +30,7 @@ class Store:
             next(customers_read)
             for row in customers_read:
                 if len(row) == 5:
-                    self.customers.append(customer(row))
+                    self.customers.append(Customer(row))
                 else:
                     self.VIP_Customer.append(VIPCustomer(row))
 
