@@ -28,3 +28,4 @@ class VIPCustomer(Customer):
             self.JoiningPresent = False
         else:
             print("You already got your present")
+
