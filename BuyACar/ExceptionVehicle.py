@@ -36,7 +36,7 @@ class ExceptionProcess:
             if self.var < self.minimume:
                 if self.var > self.maximum:
 
-                raise ExceptionVehicle()
+                raise ExceptionVehicle(self.var, 4, self.source)
 
 d = ExceptionProcess.ChecklntNumbers("d",3,8,"Vehicles")
 print(d)
