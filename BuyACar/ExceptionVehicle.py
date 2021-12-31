@@ -11,8 +11,32 @@ class ExceptionVehicle:
     def __repr__(self):
         return self.__str__()
 
-x = ExceptionVehicle("r",3,"t")
+
+x = ExceptionVehicle("r", 3, "t")
 print(x)
+
 
 class ExceptionProcess:
 
+    def __init__(self):
+        pass
+
+    def ChecklntNumbers(self, var, minimum, maximum, source):
+        self.var = var
+        self.minimume = int(minimum)
+        self.maximum = int(maximum)
+        self.source = source
+
+        try:
+          if self.var is not int:
+
+              raise ExceptionVehicle(self.var, 5, self.source)
+
+        try:
+            if self.var < self.minimume:
+                if self.var > self.maximum:
+
+                raise ExceptionVehicle()
+
+d = ExceptionProcess.ChecklntNumbers("d",3,8,"Vehicles")
+print(d)
