@@ -1,4 +1,4 @@
-class ExceptionVehicle:
+class ExceptionVehicle(Exception):
 
     def __init__(self, message, level, source):
         self.message = str(message)
@@ -12,8 +12,8 @@ class ExceptionVehicle:
         return self.__str__()
 
 
-x = ExceptionVehicle("r", 3, "t")
-print(x)
+# x = ExceptionVehicle("r", 3, "t")
+# print(x)
 
 
 class ExceptionProcess:
@@ -22,21 +22,65 @@ class ExceptionProcess:
         pass
 
     def ChecklntNumbers(self, var, minimum, maximum, source):
-        self.var = var
-        self.minimume = int(minimum)
-        self.maximum = int(maximum)
-        self.source = source
 
-        try:
-          if self.var is not int:
+        raise_exception = False
+        level = -1
 
-              raise ExceptionVehicle(self.var, 5, self.source)
+        if type(var) is not int:
+            raise_exception = True
+            level = 5
+        else:
+            if not minimum is None and var < minimum:
+                raise_exception = True
+                level = 4
 
-        try:
-            if self.var < self.minimume:
-                if self.var > self.maximum:
+            elif not maximum is None and var > maximum:
+                raise_exception = True
+                level = 4
 
-                raise ExceptionVehicle(self.var, 4, self.source)
+        if raise_exception:
+            raise ExceptionVehicle(var, level, source)
 
-d = ExceptionProcess.ChecklntNumbers("d",3,8,"Vehicles")
-print(d)
+    def CheckSTR(self, var, source):
+        raise_exception = False
+        level = -1
+
+        if type(var) is not str:
+            raise_exception = True
+            level = 3
+
+        elif var == "":
+            raise_exception = True
+            level = 3
+
+        if raise_exception:
+            raise ExceptionVehicle(var, level, source)
+
+    def CheckList(self, var, source):
+        raise_exception = False
+        level = -1
+
+        if type(var) is not list:
+            raise_exception = True
+            level = 2
+
+        elif len(var) == 0:
+            raise_exception = True
+            level = 1
+
+        if raise_exception:
+            raise ExceptionVehicle(var, level, source)
+try:
+    print("**********")
+
+    ExceptionProcess().ChecklntNumbers("d", 3, 8, "Vehicles")
+except(ExceptionVehicle) as ERR:
+    print(ERR)
+    print("*****3*****")
+
+try:
+    print("**********")
+
+    ExceptionProcess().CheckSTR("d", 3, 8, "Vehicles")
+except(ExceptionVehicle) as ERR:
+    print(ERR)
