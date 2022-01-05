@@ -70,6 +70,32 @@ class ExceptionProcess:
 
         if raise_exception:
             raise ExceptionVehicle(var, level, source)
+
+    def CheckDic(self, var, source):
+        raise_exception = False
+        level = -1
+
+        if type(var) is not dict:
+            raise_exception = True
+            level = 2
+        elif len(var) == 0:
+            raise_exception = True
+            level = 1
+        if raise_exception:
+            raise ExceptionVehicle(var, level, source)
+
+    def CheckTup(self, var, source):
+        raise_exception = False
+        level = -1
+
+        if type(var) is not tuple:
+            raise_exception = True
+            level = 2
+        elif len(var) == 0:
+            raise_exception = True
+            level = 1
+        if raise_exception:
+            raise ExceptionVehicle(var, level, source)
 try:
     print("**********")
 
