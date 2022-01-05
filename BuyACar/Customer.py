@@ -1,3 +1,6 @@
+from BuyACar.ExceptionVehicle import *
+
+
 class Customer:
 
     def __init__(self, params):
@@ -6,8 +9,13 @@ class Customer:
         self.address = params[2]
 
         params[3] = str(params[3])
-        while len(params[3]) < 10:
-            params[3] = params[3] + "0"
+        try:
+            ExceptionProcess().CheckIntNumbers(params[3], None, 10, "customer")
+        except ExceptionVehicle as Err:
+            print(Err)
+
+#        while len(params[3]) < 10:
+#            params[3] = params[3] + "0"
 
         self.phone_number = params[3]
 

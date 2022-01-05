@@ -21,7 +21,7 @@ class ExceptionProcess:
     def __init__(self):
         pass
 
-    def ChecklntNumbers(self, var, minimum, maximum, source):
+    def CheckIntNumbers(self, var, minimum, maximum, source):
 
         raise_exception = False
         level = -1
@@ -99,14 +99,14 @@ class ExceptionProcess:
 try:
     print("**********")
 
-    ExceptionProcess().ChecklntNumbers("d", 3, 8, "Vehicles")
-except(ExceptionVehicle) as ERR:
-    print(ERR)
+    ExceptionProcess().CheckIntNumbers("d", 3, 8, "Vehicles")
+except(ExceptionVehicle) as err:
+    print(err)
     print("*****3*****")
 
 try:
     print("**********")
 
     ExceptionProcess().CheckSTR("d", 3, 8, "Vehicles")
-except(ExceptionVehicle) as ERR:
-    print(ERR)
+except ExceptionVehicle as err:
+    print(err)

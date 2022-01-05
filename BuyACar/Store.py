@@ -4,6 +4,7 @@ from BuyACar.Vehicle import Vehicle
 from BuyACar.Customer import Customer
 from BuyACar.VIPCustomer import VIPCustomer
 from BuyACar.CollectorsVehicle import CollectorsVehicle
+from BuyACar.ExceptionVehicle import *
 
 
 class Store:
@@ -52,11 +53,16 @@ class Store:
 
     def get_all_by_KM_under(self, km):
 
-        km_under = []
-        for vehicle in self.collectors_vehicle:
-            if vehicle.km <= int(km):
-                km_under.append(vehicle)
-        return km_under
+        try:
+            ExceptionProcess().CheckIntNumbers(km, 1, None, "Store")
+        except ExceptionVehicle as Err:
+            print(Err)
+
+#       km_under = []
+#        for vehicle in self.collectors_vehicle:
+#            if vehicle.km <= int(km):
+#                km_under.append(vehicle)
+#        return km_under
 
     def add_vehicle(self, vehicle):
         is_added = False

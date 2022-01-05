@@ -1,3 +1,6 @@
+from BuyACar.ExceptionVehicle import *
+
+
 class Vehicle:
 
     def __init__(self, params):
@@ -10,16 +13,25 @@ class Vehicle:
         self.model = params[3]
 
         params[4] = str(params[4])
-        while len(params[4]) < 4:
-            params[4] = "0" + params[4]
-        self.year = params[4]
+        try:
+            ExceptionProcess().CheckIntNumbers(params[4], None, 4, "Vehicles")
+        except ExceptionVehicle as Err:
+            print(Err)
+        #        while len(params[4]) < 4:
+        #            params[4] = "0" + params[4]
+        #        self.year = params[4]
 
         params[5] = int(params[5])
-        if params[5] > 3000000:
-            params[5] = 3000000
-        if params[5] < 1000:
-            params[5] = 1000
-        self.price = params[5]
+        try:
+            ExceptionProcess().CheckIntNumbers(params[5], 1000, 3000000, "Vehicles")
+        except ExceptionVehicle as Err:
+            print(Err)
+
+    #        if params[5] > 3000000:
+    #            params[5] = 3000000
+    #        if params[5] < 1000:
+    #            params[5] = 1000
+    #        self.price = params[5]
 
     def __str__(self):
         return "{}, {}, {}, {}, {}, {}".format(self.licence_plate, self.vehicle_type, self.manufacturer,
