@@ -43,7 +43,10 @@ class Store:
         return self.collectors_vehicle
 
     def get_vehicle(self, licence_plate):
-
+        try:
+            ExceptionProcess().CheckIntNumbers(licence_plate, 10000000, 99999999, "Store")
+        except ExceptionVehicle as Err:
+            print(Err)
         v = None
         for vehicle in self.vehicles:
             if vehicle.licence_plate == str(licence_plate):
@@ -58,13 +61,18 @@ class Store:
         except ExceptionVehicle as Err:
             print(Err)
 
-#       km_under = []
-#        for vehicle in self.collectors_vehicle:
-#            if vehicle.km <= int(km):
-#                km_under.append(vehicle)
-#        return km_under
+        km_under = []
+        for vehicle in self.collectors_vehicle:
+            if vehicle.km <= int(km):
+                km_under.append(vehicle)
+        return km_under
 
     def add_vehicle(self, vehicle):
+        try:
+            ExceptionProcess().CheckSTR(vehicle, "Store")
+        except ExceptionVehicle as Err:
+            print(Err)
+
         is_added = False
         if self.get_vehicle(vehicle.licence_plate) is None:
             self.vehicles.append(vehicle)
@@ -73,6 +81,10 @@ class Store:
         return is_added
 
     def remove_vehicle(self, vehicle):
+        try:
+            ExceptionProcess().CheckSTR(vehicle, "Store")
+        except ExceptionVehicle as Err:
+            print(Err)
 
         is_removed = False
         vehicle_to_remove = self.get_vehicle(str(vehicle))
@@ -82,6 +94,11 @@ class Store:
         return is_removed
 
     def get_all_by_manufacturer(self, manufacturer):
+        try:
+            ExceptionProcess().CheckSTR(manufacturer, "Store")
+        except ExceptionVehicle as Err:
+            print(Err)
+
         vehicle_by_manufacturer = []
         for vehicle in self.vehicles:
             if vehicle.manufacturer == manufacturer:
@@ -89,6 +106,10 @@ class Store:
         return vehicle_by_manufacturer
 
     def get_all_by_price_under(self, price):
+        try:
+            ExceptionProcess().CheckIntNumbers(price, 0, None, "Store")
+        except ExceptionVehicle as Err:
+            print(Err)
         price_under = []
         for vehicle in self.vehicles:
             if vehicle.price < int(price):
