@@ -12,10 +12,6 @@ class ExceptionVehicle(Exception):
         return self.__str__()
 
 
-# x = ExceptionVehicle("r", 3, "t")
-# print(x)
-
-
 class ExceptionProcess:
 
     def __init__(self):
@@ -96,19 +92,3 @@ class ExceptionProcess:
             level = 1
         if raise_exception:
             raise ExceptionVehicle(var, level, source)
-"""""
-try:
-    print("**********")
-
-    ExceptionProcess().CheckIntNumbers("d", 3, 8, "Vehicles")
-except(ExceptionVehicle) as err:
-    print(err)
-    print("*****3*****")
-
-try:
-    print("**********")
-
-    ExceptionProcess().CheckSTR("d", "Vehicles")
-except ExceptionVehicle as err:
-    print(err)
-"""""

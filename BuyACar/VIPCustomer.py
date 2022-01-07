@@ -1,3 +1,5 @@
+import distutils
+
 from Customer import *
 
 
@@ -9,11 +11,7 @@ class VIPCustomer(Customer):
 
         self.StartDate = tuple(list(eval(params[5])))
         self.BirthDate = tuple(list(eval(params[6])))
-
-        if params[7] is None:
-            self.JoiningPresent = True
-        else:
-            self.JoiningPresent = bool(params[7])
+        self.JoiningPresent = params[7] == 'True'
 
     def __str__(self):
         back = super().__str__()
@@ -28,4 +26,3 @@ class VIPCustomer(Customer):
             self.JoiningPresent = False
         else:
             print("You already got your present")
-

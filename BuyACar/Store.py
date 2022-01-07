@@ -56,7 +56,6 @@ class Store:
         return v
 
     def get_all_by_KM_under(self, km):
-
         try:
             ExceptionProcess().CheckIntNumbers(km, 1, None, "Store")
         except ExceptionVehicle as Err:
@@ -64,8 +63,11 @@ class Store:
 
         km_under = []
         for vehicle in self.collectors_vehicle:
-            if vehicle.km <= int(km):
+            try:
+                ExceptionProcess().CheckIntNumbers(vehicle.km,int(km +1),None,"Store")
                 km_under.append(vehicle)
+            except ExceptionVehicle as Err:
+                print(Err)
         return km_under
 
     def add_vehicle(self, vehicle):
@@ -78,7 +80,6 @@ class Store:
         if self.get_vehicle(vehicle.licence_plate) is None:
             self.vehicles.append(vehicle)
             is_added = True
-
         return is_added
 
     def remove_vehicle(self, vehicle):
@@ -150,7 +151,7 @@ class Store:
     def get_all_entitled(self):
         entitled = []
         for costumer in self.VIP_Customer:
-            if costumer:
+            if costumer.JoiningPresent == True:
                 entitled.append(costumer)
         return entitled
 

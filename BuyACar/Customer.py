@@ -8,16 +8,13 @@ class Customer:
         self.name = params[1]
         self.address = params[2]
         self.phone_number = int(params[3])
+        self.gender = params[4].strip
         try:
-            ExceptionProcess().CheckIntNumbers(self.phone_number, None, 10, "customer")
+            ExceptionProcess().CheckIntNumbers(self.phone_number, 1000000000, None, "customer")
         except ExceptionVehicle as Err:
             print(Err)
-            while self.phone_number < 199999999:
+            while self.phone_number < 1000000000:
                 self.phone_number = self.phone_number*10
-
-        self.phone_number = params[3]
-
-        self.gender = params[4].strip
 
         gender_list = ("M", "F")
         if self.gender not in gender_list:

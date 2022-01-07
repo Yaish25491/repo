@@ -4,7 +4,7 @@ from Customer import Customer
 from Store import Store
 from VIPCustomer import VIPCustomer
 import os
-
+import GUI
 
 def main():
     #####################################################################
@@ -16,7 +16,7 @@ def main():
     # AutoShopUSA = Store(vPath, cPath)
     #####################################################################
     AutoShopUSA = Store("vehicles.csv", "customers.csv")
-
+    GUI.run_GUI(AutoShopUSA)
     vehicleTest = Vehicle([1155999, "Car", "Toyota", "Corolla", 2020, 83400])
     customerTest = Customer([98699, "Candace Parker", "Bates Street.St Louis", 503236702, "L"])
     # vehicleTest = Vehicle([1155999, "Car", "Toyota", "Corolla", 2020, 83400, 2963630, 9, "(1, 2021)"])
@@ -24,14 +24,14 @@ def main():
     # v = VIPCustomer([59769, "Simone Biles", "Alioth Ave	Ohio", 501277597, "F", "(31, 12, 2020)", "(17, 5, 1985)", True])
 
     print("######################### ALL Vehicles #################################")
- #   AutoShopUSA.print_vehicles()
+    AutoShopUSA.print_vehicles()
     print("######################### ALL Collectors Vehicles #################################")
- #   collectors_list = AutoShopUSA.collectors_vehicle
- #   for vehicle in collectors_list:
- #       print(vehicle)
+    collectors_list = AutoShopUSA.collectors_vehicle
+    for vehicle in collectors_list:
+        print(vehicle)
     print("######################### get all by KM under ##############################")
-#    for vehicle in AutoShopUSA.get_all_by_KM_under(15000):
- #       print(vehicle)
+    for vehicle in AutoShopUSA.get_all_by_KM_under(15000):
+        print(vehicle)
     print("######################### All VIP Costumers ##############################")
     VIPlist = AutoShopUSA.VIP_Customer
     for costumer in VIPlist:
