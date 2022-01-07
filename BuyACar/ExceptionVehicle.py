@@ -28,7 +28,7 @@ class ExceptionProcess:
 
         if type(var) is not int:
             raise_exception = True
-            level = 5
+            level = 9
         else:
             if not minimum is None and var < minimum:
                 raise_exception = True
@@ -96,6 +96,7 @@ class ExceptionProcess:
             level = 1
         if raise_exception:
             raise ExceptionVehicle(var, level, source)
+"""""
 try:
     print("**********")
 
@@ -107,6 +108,7 @@ except(ExceptionVehicle) as err:
 try:
     print("**********")
 
-    ExceptionProcess().CheckSTR("d", 3, 8, "Vehicles")
+    ExceptionProcess().CheckSTR("d", "Vehicles")
 except ExceptionVehicle as err:
     print(err)
+"""""

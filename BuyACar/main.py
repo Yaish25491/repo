@@ -24,14 +24,14 @@ def main():
     # v = VIPCustomer([59769, "Simone Biles", "Alioth Ave	Ohio", 501277597, "F", "(31, 12, 2020)", "(17, 5, 1985)", True])
 
     print("######################### ALL Vehicles #################################")
-    AutoShopUSA.print_vehicles()
+ #   AutoShopUSA.print_vehicles()
     print("######################### ALL Collectors Vehicles #################################")
-    collectors_list = AutoShopUSA.collectors_vehicle
-    for vehicle in collectors_list:
-        print(vehicle)
+ #   collectors_list = AutoShopUSA.collectors_vehicle
+ #   for vehicle in collectors_list:
+ #       print(vehicle)
     print("######################### get all by KM under ##############################")
-    for vehicle in AutoShopUSA.get_all_by_KM_under(15000):
-        print(vehicle)
+#    for vehicle in AutoShopUSA.get_all_by_KM_under(15000):
+ #       print(vehicle)
     print("######################### All VIP Costumers ##############################")
     VIPlist = AutoShopUSA.VIP_Customer
     for costumer in VIPlist:

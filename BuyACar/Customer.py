@@ -7,15 +7,13 @@ class Customer:
         self.customer_id = params[0]
         self.name = params[1]
         self.address = params[2]
-
-        params[3] = str(params[3])
+        self.phone_number = int(params[3])
         try:
-            ExceptionProcess().CheckIntNumbers(params[3], None, 10, "customer")
+            ExceptionProcess().CheckIntNumbers(self.phone_number, None, 10, "customer")
         except ExceptionVehicle as Err:
             print(Err)
-
-#        while len(params[3]) < 10:
-#            params[3] = params[3] + "0"
+            while self.phone_number < 199999999:
+                self.phone_number = self.phone_number*10
 
         self.phone_number = params[3]
 

@@ -47,6 +47,7 @@ class Store:
             ExceptionProcess().CheckIntNumbers(licence_plate, 10000000, 99999999, "Store")
         except ExceptionVehicle as Err:
             print(Err)
+
         v = None
         for vehicle in self.vehicles:
             if vehicle.licence_plate == str(licence_plate):
@@ -69,7 +70,7 @@ class Store:
 
     def add_vehicle(self, vehicle):
         try:
-            ExceptionProcess().CheckSTR(vehicle, "Store")
+            ExceptionProcess().CheckTup(vehicle, "Store")
         except ExceptionVehicle as Err:
             print(Err)
 
@@ -110,9 +111,10 @@ class Store:
             ExceptionProcess().CheckIntNumbers(price, 0, None, "Store")
         except ExceptionVehicle as Err:
             print(Err)
+
         price_under = []
         for vehicle in self.vehicles:
-            if vehicle.price < int(price):
+            if int(vehicle.price) < int(price):
                 price_under.append(vehicle)
         return price_under
 
@@ -133,6 +135,11 @@ class Store:
         return VIPCustomer
 
     def get_customer(self, customer_id):
+        try:
+            ExceptionProcess().CheckIntNumbers(customer_id, 10000, 99999, "Store")
+        except ExceptionVehicle as Err:
+            print(Err)
+
         c = None
         for customer in self.customers:
             if customer.customer_id == str(customer_id):
@@ -148,6 +155,11 @@ class Store:
         return entitled
 
     def add_customer(self, customer):
+        try:
+            ExceptionProcess().CheckTup(customer, "Store")
+        except ExceptionVehicle as Err:
+            print(Err)
+
         is_added = False
         if self.get_customer(customer.customer_id) is None:
             self.customers.append(customer)
@@ -155,6 +167,11 @@ class Store:
         return is_added
 
     def remove_customer(self, customer_id):
+        try:
+            ExceptionProcess().CheckIntNumbers(customer_id, 10000, 99999, "Store")
+        except ExceptionVehicle as Err:
+            print(Err)
+
         is_removed = False
         customer_to_remove = self.get_customer(customer_id)
         if customer_to_remove is not None:
