@@ -32,7 +32,7 @@ class ExceptionProcess:
 
             elif not maximum is None and var > maximum:
                 raise_exception = True
-                level = 4
+                level = 5
 
         if raise_exception:
             raise ExceptionVehicle(var, level, source)

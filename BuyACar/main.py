@@ -4,7 +4,6 @@ from Customer import Customer
 from Store import Store
 from VIPCustomer import VIPCustomer
 import os
-import GUI
 from BuyACar.ExceptionVehicle import *
 from tkinter import *
 
@@ -22,6 +21,7 @@ def main():
         window = Tk()
         window.title("AutoShopUSA")
         window.geometry('700x400')
+
         lbl = Label(window, text="AutoShopUSA", font=("d Bold", 25))
         lbl.grid(column=3, row=1)
         AutoShopUSA = Store("vehicles.csv", "customers.csv")
@@ -34,7 +34,7 @@ def main():
         print("######################### ALL Vehicles #################################")
 
         def get_vic():
-            AutoShopUSA.print_vehicles()
+           print(AutoShopUSA.print_vehicles())
 
         print_vehicles_but = Button(window, text="print_vehicles", command=get_vic())
         print_vehicles_but.grid(column=4, row=3)
@@ -54,15 +54,16 @@ def main():
         def print_by_KM():
             data = int(txt3.get())
             AutoShopUSA.get_all_by_KM_under(data)
+            for vehicle in AutoShopUSA.get_all_by_KM_under(15000):
+                print(vehicle)
 
-        but15 = Button(window, text="Print all vehicle under KM", width=35, command=print_by_KM)
-        but15.grid(column=3, row=4)
+        print_by_km_but = Button(window, text="Print all vehicle under KM", width=35, command=print_by_KM)
+        print_by_km_but.grid(column=3, row=4)
         txt3 = Entry(window, width=15, font=('david', 10, 'bold'))
         txt3.insert(0, "KM")
         txt3.grid(column=3, row=5)
 
-    #    for vehicle in AutoShopUSA.get_all_by_KM_under(15000):
-    #        print(vehicle)
+
         print("######################### All VIP Costumers ##############################")
 
         def get_vip():
@@ -121,12 +122,11 @@ def main():
         print("######################### Add Costumers ###############################")
 
         def add_cus():
-            data = (
-            [int(txt1_5.get()), txt2_5.get().capitalize(), txt3_5.get().capitalize(), txt4_5.get(), txt5_5.get()])
+            data = ([int(txt1_5.get()), txt2_5.get().capitalize(), txt3_5.get().capitalize(), txt4_5.get(), txt5_5.get()])
             AutoShopUSA.add_customer(data)
 
-        but6 = Button(window, text="add customer", width=30, command=add_cus)
-        but6.grid(column=4, row=4)
+        add_cus_but = Button(window, text="add customer", width=30, command=add_cus)
+        add_cus_but.grid(column=4, row=4)
 
         txt1_5 = Entry(window, width=15, font=('david', 10, 'bold'))
         txt1_5.insert(0, "id number")
@@ -167,13 +167,14 @@ def main():
 
         def print_by_manu():
             data = get_all_by_manufacturer_txt.get().capitalize()
-            AutoShopUSA.get_all_by_manufacturer(data)
-            get_all_by_manufacturer_but = Button(window, text="print by manufacturer", width=30, command=print_by_manu)
-            get_all_by_manufacturer_but.grid(column=4, row=12)
+            vehicle_by_manufacturer = AutoShopUSA.get_all_by_manufacturer(data)
+            for vehicle in vehicle_by_manufacturer:
+                print(vehicle)
 
-#        vehicle_by_manufacturer = AutoShopUSA.get_all_by_manufacturer("Kia")
-#        for vehicle in vehicle_by_manufacturer:
-#            print(vehicle)
+        get_all_by_manufacturer_but = Button(window, text="print by manufacturer", width=30, command=print_by_manu)
+        get_all_by_manufacturer_but.grid(column=4, row=12)
+
+
         print("######################### All by Under Price ###########################")
         get_all_by_price_under_txt = Entry(window, width=10)
         get_all_by_price_under_txt.insert(0, "Price")
@@ -181,15 +182,15 @@ def main():
         get_all_by_price_under_txt.focus()
 
         def print_under():
-            data = int(txt6_7.get())
-            AutoShopUSA.get_all_by_under(data)
+            data = int(get_all_by_price_under_txt.get())
+            price_under = AutoShopUSA.get_all_by_price_under(data)
+            for vehicle in price_under:
+                print(vehicle)
 
         get_all_by_price_under = Button(window, text="get_all_by_price_under", width=30, command=print_under)
         get_all_by_price_under.grid(column=2, row=14)
 
-#        price_under = AutoShopUSA.get_all_by_price_under("15000")
-#       for vehicle in price_under:
-#            print(vehicle)
+
         print("######################### Most Expansive ############################")
 
         def most_exp():
@@ -205,11 +206,11 @@ def main():
         get_vehicle_txt.focus()
         def get_vehi():
             data = int(get_vehicle_txt.get())
-            AutoShopUSA.get_vehicle(data)
+            print(AutoShopUSA.get_vehicle(data))
+
         but13 = Button(window, text="print vehicle by LP ", width=30, command=get_vehi)
         but13.grid(column=4, row=14)
 
-            #print(AutoShopUSA.get_vehicle(46132049))
         print("######################### Get Costumer ###############################")
         get_customer_txt = Entry(window, width=10)
         get_customer_txt.grid(column=3, row=13)
@@ -217,11 +218,10 @@ def main():
 
         def print_by_id():
             data = int(get_customer_txt.get())
-            AutoShopUSA.get_customer(data)
+            print(AutoShopUSA.get_customer(data))
 
         but13 = Button(window, text="print customer by id ", width=30, command=print_by_id)
         but13.grid(column=3, row=12)
-#        print(AutoShopUSA.get_customer(59769))
         print("#####################################################################")
 
         window.mainloop()
