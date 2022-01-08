@@ -64,7 +64,7 @@ class Store:
         km_under = []
         for vehicle in self.collectors_vehicle:
             try:
-                ExceptionProcess().CheckIntNumbers(vehicle.km,int(km +1),None,"Store")
+                ExceptionProcess().CheckIntNumbers(vehicle.km, int(km), None, "Store")
                 km_under.append(vehicle)
             except ExceptionVehicle as Err:
                 print(Err)
